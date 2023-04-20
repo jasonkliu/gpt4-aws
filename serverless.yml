@@ -1,0 +1,25 @@
+org: jasonkliu
+app: gpt4
+service: aws-node-http-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-west-2
+  timeout: 900 # api gateway has timeout of 30
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action: 'ssm:GetParameter'
+          Resource: !Sub 'arn:aws:ssm:us-west-2:${AWS::AccountId}:parameter/openai'
+
+plugins:
+ - serverless-offline
+
+functions:
+  api:
+    handler: index.handler
+  system:
+    handler: system.handler
