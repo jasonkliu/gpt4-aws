@@ -34,5 +34,7 @@ Now, login to the Lambda console and go to Configuration > Function URL. Create 
 - Allow methods: *
 - Allow credentials: On
 
+### Sample Usage
+
 Paste the URLs into `index.sh` and `system.sh` and you're good to go.
 
