@@ -7,7 +7,7 @@ const aws = require('aws-sdk');
 const ssm = new aws.SSM();
 
 module.exports.handler = async (event) => {
-  
+
   const apiKey = await getSecret();
   const configuration = new Configuration({
     apiKey: apiKey,
